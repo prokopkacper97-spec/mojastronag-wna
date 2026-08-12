@@ -817,74 +817,27 @@
 
 <div class="owner-tools" id="ownerTools" aria-label="Narzędzia edycji właściciela">
   <button type="button" id="toggleEdit">Włącz edycję</button>
-  <button type="button" id="saveEdits">Zapisz lokalnie</button>
-  <button type="button" id="downloadPage">Pobierz stronę</button>
+  <button type="button" id="saveEdits">Zapisz wersję roboczą</button>
+  <button type="button" id="downloadPage" data-primary>Pobierz do publikacji</button>
+  <button type="button" id="ownerLogout">Wyloguj</button>
 </div>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  (() => {
-    const params = new URLSearchParams(location.search);
-    const editableSelectors = [
-      'nav.links a', '.lang-switch a', '.eyebrow', 'h2', 'h3.sub-heading',
-      '.about-copy p', '.about-fact span', '.about-fact strong', '.about-details h3',
-      '.research-list span', '.membership-area li', '.tl-date', '.tl-title', '.tl-org', '.tl-desc',
-      '.simple-list li', '.rg-stat .num', '.rg-stat .label', '.pub-meta span', '.pub-title a',
-      '.pub-authors', '.pub-link', 'details.conf summary', '.conf-authors', '.conf-title', '.conf-venue',
-      '.contact-card .name', '.contact-card .handle', '.footer-rights', '.built-by'
-    ];
-    const fields = [...document.querySelectorAll(editableSelectors.join(','))];
-    fields.forEach((field, index) => {
-      if (!field.dataset.edit) field.dataset.edit = `content-${String(index + 1).padStart(3, '0')}`;
-    });
-    const key = 'kp-site-pl-edits';
-    try {
-      const saved = JSON.parse(localStorage.getItem(key) || '{}');
-      fields.forEach(field => {
-        if (Object.prototype.hasOwnProperty.call(saved, field.dataset.edit)) field.innerHTML = saved[field.dataset.edit];
-      });
-    } catch (_) {}
-    if (params.get('owner') !== '1') return;
-    const tools = document.getElementById('ownerTools');
-    fields.forEach(field => field.spellcheck = true);
-    tools.classList.add('visible');
-    const saveFields = () => {
-      const data = Object.fromEntries(fields.map(field => [field.dataset.edit, field.innerHTML]));
-      localStorage.setItem(key, JSON.stringify(data));
-    };
-    let autosaveTimer;
-    document.addEventListener('input', event => {
-      if (!event.target.closest('[data-edit]')) return;
-      clearTimeout(autosaveTimer);
-      autosaveTimer = setTimeout(saveFields, 250);
-    });
-    window.addEventListener('beforeunload', saveFields);
-    document.addEventListener('click', event => {
-      const field = event.target.closest('[data-edit]');
-      if (field && document.body.classList.contains('owner-mode')) {
-        event.preventDefault();
-        event.stopPropagation();
-        field.focus();
-      }
-    }, true);
-    document.getElementById('toggleEdit').addEventListener('click', event => {
-      const active = document.body.classList.toggle('owner-mode');
-      fields.forEach(field => field.contentEditable = active ? 'true' : 'false');
-      event.currentTarget.textContent = active ? 'Zakończ edycję' : 'Włącz edycję';
-    });
-    document.getElementById('saveEdits').addEventListener('click', () => {
-      saveFields();
-      const note = document.createElement('div'); note.className = 'edit-note'; note.textContent = 'Zmiany zapisano na tym urządzeniu.'; document.body.append(note); setTimeout(() => note.remove(), 2400);
-    });
-    document.getElementById('downloadPage').addEventListener('click', () => {
-      document.body.classList.remove('owner-mode'); fields.forEach(field => field.contentEditable = 'false');
-      tools.classList.remove('visible');
-      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      tools.classList.add('visible');
-      const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([html], {type:'text/html'})); link.download = 'profile.html'; link.click(); URL.revokeObjectURL(link.href);
-    });
-  })();
-</script>
+<div class="owner-login" id="ownerLogin" hidden>
+  <form class="owner-login-card" id="ownerLoginForm">
+    <div class="owner-login-label">Dostęp prywatny</div>
+    <h2>Tryb właściciela</h2>
+    <p>Po zalogowaniu możesz kliknąć dowolny tekst, poprawić go i zapisać własną wersję roboczą.</p>
+    <label for="ownerPassword">Hasło</label>
+    <input id="ownerPassword" type="password" autocomplete="current-password" required>
+    <div class="owner-login-error" id="ownerLoginError" aria-live="polite"></div>
+    <div class="owner-login-actions">
+      <button type="submit">Otwórz edycję</button>
+      <a href="profile.html">Anuluj</a>
+    </div>
+  </form>
+</div>
+
+<script src="assets/owner-editor.js" defer></script>
 
 </body>
 </html>
