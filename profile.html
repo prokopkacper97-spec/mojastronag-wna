@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="1254x1254" href="assets/favicon-kacper-logo.png">
 <link rel="alternate" hreflang="pl" href="profile.html">
 <link rel="alternate" hreflang="en" href="profile-en.html">
+<script>document.documentElement.classList.add('content-loading');window.__contentRevealTimer=window.setTimeout(()=>document.documentElement.classList.remove('content-loading'),4000);window.__contentPromise=fetch('/api/editor?lang=pl',{cache:'no-store',credentials:'same-origin'}).catch(()=>null);</script>
 <style>
   :root{
     --bg-0:#04070d;
@@ -25,7 +26,7 @@
     --radius:16px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;background:#04070d;}
   body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -37,7 +38,10 @@
     color:var(--text);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    opacity:1;
+    transition:opacity .14s ease;
   }
+  html.content-loading body{opacity:0;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
@@ -460,10 +464,10 @@
     <div class="about-layout">
       <div class="about-copy">
         <p class="bio-lead" data-edit="bio-intro">
-          Jestem <strong>lekarzem rezydentem neurochirurgii oraz doktorantem w Klinice Neurochirurgii Uniwersytetu Medycznego w Białymstoku</strong>. Łączę praktykę kliniczną z badaniami nad chorobami nerwu wzrokowego, oczodołu i zaburzeniami krążenia płynu mózgowo-rdzeniowego.
+          Jestem <strong>lekarzem rezydentem neurochirurgii oraz doktorantem w Klinice Neurochirurgii Uniwersytetu Medycznego w Białymstoku</strong>. Łączę praktykę kliniczną z badaniami nad zaburzeniami krążenia płynu mózgowo-rdzeniowego.
         </p>
         <p data-edit="bio-research">
-          W pracy naukowej koncentruję się na chirurgicznym leczeniu zaburzeń widzenia w oparciu o mechanizm choroby — w tym fenestracji pochewki i endoskopowej dekompresji nerwu wzrokowego. Zajmuję się analizą danych klinicznych, oceną wyników okulistycznych, interpretacją badań obrazowych oraz analizą hydrodynamiki PMR z wykorzystaniem lędźwiowych testów infuzyjnych i oprogramowania ICM+.
+          W pracy naukowej koncentruję się na patologiach związanych z hydrodynamiką płynu mózgowo-rdzeniowego i ich leczeniem — w tym fenestracją pochewki nerwu wzrokowego oraz endoskopową dekompresją nerwu wzrokowego. Zajmuję się analizą danych klinicznych, oceną wyników okulistycznych, interpretacją badań obrazowych oraz analizą hydrodynamiki PMR z wykorzystaniem lędźwiowych testów infuzyjnych i oprogramowania ICM+.
         </p>
         <p data-edit="bio-project">
           Równolegle rozwijam <strong>NeuroProgress</strong> — prywatny system nauki dla lekarzy i rezydentów neurochirurgii, łączący plan pracy, anatomię, bibliotekę zasobów i mierzalny postęp.
@@ -477,7 +481,7 @@
         <div class="about-facts">
           <div class="about-fact"><span>Rola</span><strong>Lekarz rezydent<br>neurochirurgii</strong></div>
           <div class="about-fact"><span>Afiliacja</span><strong>Uniwersytet Medyczny<br>w Białymstoku</strong></div>
-          <div class="about-fact"><span>Ścieżka naukowa</span><strong>Doktorant · badacz kliniczny</strong></div>
+          <div class="about-fact"><span>Ścieżka naukowa</span><strong>Doktorant Szkoły Doktorskiej UMB</strong></div>
           <div class="about-fact"><span>Lokalizacja</span><strong>Białystok, Polska</strong></div>
         </div>
       </aside>
@@ -485,14 +489,14 @@
 
     <div class="about-details">
       <div class="research-area">
-        <h3>Główne zainteresowania badawcze</h3>
+        <h3>Główne zainteresowania naukowe</h3>
         <div class="research-list">
-          <span>Chirurgia podstawy czaszki</span>
-          <span>Neurochirurgia oczodołu</span>
-          <span>Chirurgia nerwu wzrokowego</span>
-          <span>Idiopatyczne nadciśnienie wewnątrzczaszkowe</span>
           <span>Zaburzenia krążenia i hydrodynamika PMR</span>
-          <span>Lędźwiowe testy infuzyjne</span>
+          <span>Chirurgia kręgosłupa</span>
+          <span>Neuroonkologia</span>
+          <span>Konflikty naczyniowo-nerwowe</span>
+          <span>Chirurgia podstawy czaszki, w tym chirurgia oczodołu</span>
+          <span>Zastosowanie technik mikrochirurgicznych</span>
         </div>
       </div>
       <div class="membership-area">
@@ -535,10 +539,7 @@
         <div class="tl-title">Doktorant</div>
         <div class="tl-org">Uniwersytet Medyczny w Białymstoku, Klinika Neurochirurgii</div>
         <div class="tl-desc">
-          Obszar badań: interdyscyplinarne leczenie zaburzeń oczodołu u pacjentów leczonych w Klinice Neurochirurgii
-          Uniwersyteckiego Szpitala Klinicznego w Białymstoku. Projekt doktorski dotyczy chirurgicznego leczenia
-          patologii oczodołu i nerwu wzrokowego — strategii operacyjnej, wyników leczenia, profilu bezpieczeństwa,
-          funkcji widzenia, efektu kosmetycznego oraz podejmowania decyzji interdyscyplinarnych.
+          Chirurgiczne leczenie zaburzeń widzenia związanych z zaburzeniami hydrodynamiki płynu mózgowo-rdzeniowego.
         </div>
       </div>
       <div class="tl-item">
@@ -550,7 +551,7 @@
 
     <h3 class="sub-heading">Wybrane umiejętności</h3>
     <ul class="simple-list">
-      <li>Ocena kliniczna w neurochirurgii</li>
+      <li>Prowadzenie badań klinicznych</li>
       <li>Przegląd i krytyczna analiza literatury medycznej</li>
       <li>Przygotowywanie publikacji naukowych</li>
       <li>Przygotowywanie odpowiedzi dla recenzentów</li>
@@ -840,7 +841,7 @@
   </form>
 </div>
 
-<script src="assets/owner-editor.js" defer></script>
+<script src="assets/owner-editor.js?v=2" defer></script>
 
 </body>
 </html>

@@ -4,6 +4,12 @@
 
   const isPolish = document.documentElement.lang === 'pl';
   const language = isPolish ? 'pl' : 'en';
+  const params = new URLSearchParams(window.location.search);
+  const ownerRequested = params.get('owner') === '1';
+  const revealContent = () => {
+    window.clearTimeout(window.__contentRevealTimer);
+    window.requestAnimationFrame(() => document.documentElement.classList.remove('content-loading'));
+  };
   const copy = isPolish ? {
     draftKey: 'kp-site-pl-draft',
     legacyKey: 'kp-site-pl-edits',
@@ -77,12 +83,15 @@
   const serializeFields = () => Object.fromEntries(fields.map(field => [field.dataset.edit, cleanHTML(field.innerHTML)]));
 
   try {
-    const response = await fetch(`/api/editor?lang=${language}`, { cache: 'no-store', credentials: 'same-origin' });
-    if (response.ok) applyContent((await response.json()).content);
-  } catch (_) {}
+    const response = await (window.__contentPromise || fetch(`/api/editor?lang=${language}`, { cache: 'no-store', credentials: 'same-origin' }));
+    if (response?.ok) applyContent((await response.json()).content);
+  } catch (_) {
+    // The HTML copy remains a complete fallback when the online content is unavailable.
+  } finally {
+    if (!ownerRequested) revealContent();
+  }
 
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('owner') !== '1') return;
+  if (!ownerRequested) return;
 
   const tools = document.getElementById('ownerTools');
   const login = document.getElementById('ownerLogin');
@@ -135,6 +144,8 @@
     if (status.ok) unlock(); else showLogin();
   } catch (_) {
     showLogin();
+  } finally {
+    revealContent();
   }
 
   form.addEventListener('submit', async event => {
