@@ -31,7 +31,10 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
 .item-logo img{width:104px;height:104px;object-fit:contain}
 .neuroprogress-logo img{width:110px;height:116px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
 .library-logo img{width:114px;height:114px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
-.profile-symbol img{width:104px;height:104px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
+.profile-symbol{display:flex;align-items:center;justify-content:center;gap:8px}
+.profile-lockup-brain,.profile-lockup-name{display:block;flex:0 0 auto;overflow:hidden;background-image:url("kacper-logo-transparent.png");background-repeat:no-repeat;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
+.profile-lockup-brain{width:61px;height:41px;background-size:105px 105px;background-position:center -15px}
+.profile-lockup-name{width:139px;height:32px;background-size:172px 172px;background-position:center -96px}
 .sagbal-logo{width:min(230px,100%);height:128px}
 .sagbal-logo img{width:72px;height:118px;object-fit:contain}
 .sagbal-wordmark span:first-child{color:var(--ink)}
@@ -49,7 +52,7 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
 .site-footer p{margin:0;color:var(--muted);font-size:8px;letter-spacing:.65px;white-space:nowrap}
 
 @media(max-width:1100px){
-  .page-shell{padding:0 36px}.directory{max-width:760px;grid-template-columns:repeat(2,minmax(0,1fr))}.directory-item{min-height:310px;padding:36px 24px;border-bottom:1px solid var(--rule)}.directory-item:nth-child(even){border-right:0}.directory-item:nth-last-child(-n+2){border-bottom:0}.item-logo{width:220px;height:118px}.item-logo img{width:96px;height:96px}.neuroprogress-logo img{width:100px;height:106px}.library-logo img{width:104px;height:104px}.profile-symbol img{width:96px;height:96px}.sagbal-logo{width:220px}.sagbal-logo img{width:68px;height:112px}.item-copy strong{font-size:27px}.site-footer{padding:26px 0;align-items:flex-start;flex-direction:column}.site-footer p{white-space:normal}
+  .page-shell{padding:0 36px}.directory{max-width:760px;grid-template-columns:repeat(2,minmax(0,1fr))}.directory-item{min-height:310px;padding:36px 24px;border-bottom:1px solid var(--rule)}.directory-item:nth-child(even){border-right:0}.directory-item:nth-last-child(-n+2){border-bottom:0}.item-logo{width:220px;height:118px}.item-logo img{width:96px;height:96px}.neuroprogress-logo img{width:100px;height:106px}.library-logo img{width:104px;height:104px}.sagbal-logo{width:220px}.sagbal-logo img{width:68px;height:112px}.item-copy strong{font-size:27px}.site-footer{padding:26px 0;align-items:flex-start;flex-direction:column}.site-footer p{white-space:normal}
 }
 @media(max-width:680px){
   .page-shell{padding:0 20px}
@@ -67,7 +70,9 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
   .item-logo,.sagbal-logo{width:92px;height:76px;margin:0;border:0;border-radius:0;display:grid;place-items:center}
   .item-logo img,.neuroprogress-logo img{width:64px;height:68px;object-fit:contain}
   .library-logo img{width:68px;height:68px}
-  .profile-symbol img{width:64px;height:64px}
+  .profile-symbol{width:92px;gap:4px;overflow:hidden}
+  .profile-lockup-brain{width:31px;height:28px;background-size:59px 59px;background-position:center -8px}
+  .profile-lockup-name{width:55px;height:22px;background-size:72px 72px;background-position:center -40px}
   .sagbal-logo img{width:58px;height:76px}
   .item-copy{
     width:100%;height:76px;padding:0;display:flex;align-items:center;justify-content:flex-start;min-width:0

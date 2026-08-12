@@ -1,7 +1,7 @@
 .brand-lockup{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:13px;
   width:auto;
   height:58px;
   color:#172631;
@@ -16,19 +16,19 @@
   filter:brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(1183%) hue-rotate(159deg) brightness(90%);
 }
 .brand-lockup-brain{
-  width:64px;
-  height:52px;
-  background-size:92px 92px;
-  background-position:center -11px;
+  width:82px;
+  height:53px;
+  background-size:140px 140px;
+  background-position:center -20px;
 }
 .brand-lockup-name{
-  width:152px;
-  height:54px;
-  background-size:188px 188px;
-  background-position:center -91px;
+  width:210px;
+  height:48px;
+  background-size:258px 258px;
+  background-position:center -144px;
 }
 @media(max-width:680px){
-  .brand-lockup{gap:7px;height:50px}
-  .brand-lockup-brain{width:52px;height:44px;background-size:78px 78px;background-position:center -9px}
-  .brand-lockup-name{width:126px;height:46px;background-size:158px 158px;background-position:center -76px}
+  .brand-lockup{gap:9px;height:48px}
+  .brand-lockup-brain{width:64px;height:42px;background-size:110px 110px;background-position:center -16px}
+  .brand-lockup-name{width:158px;height:37px;background-size:196px 196px;background-position:center -109px}
 }
