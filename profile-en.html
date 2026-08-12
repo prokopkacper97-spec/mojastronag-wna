@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kacper Prokop — clinical and academic profile</title>
+<meta name="description" content="Clinical and academic profile of Kacper Prokop — neurosurgery resident and PhD candidate at the Medical University of Białystok. Experience, publications, and research activity.">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-kp-light.png">
+<link rel="alternate" hreflang="pl" href="profile.html">
+<link rel="alternate" hreflang="en" href="profile-en.html">
+<style>
+  :root{
+    --bg-0:#04070d;
+    --bg-1:#050d1a;
+    --bg-2:#081428;
+    --navy:#0b1c36;
+    --navy-soft:#0e1f3c;
+    --line:rgba(255,255,255,0.08);
+    --line-strong:rgba(255,255,255,0.14);
+    --text:#eef2f7;
+    --text-dim:#a8b3c4;
+    --text-faint:#6b7688;
+    --accent:#7fb8ff;
+    --accent-dim:#3d6fa8;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 12% -10%, #0d2445 0%, rgba(13,36,69,0) 60%),
+      radial-gradient(900px 700px at 90% 10%, #0a1c38 0%, rgba(10,28,56,0) 55%),
+      radial-gradient(1000px 800px at 50% 100%, #0a1830 0%, rgba(10,24,48,0) 60%),
+      var(--bg-0);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px) saturate(140%);
+    background:rgba(4,7,13,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  header.nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.2px;font-size:15px;}
+  .brand img{width:32px;height:32px;border-radius:50%;}
+  nav.links{display:flex;gap:24px;font-size:13.5px;color:var(--text-dim);flex-wrap:wrap;}
+  nav.links a{transition:color .2s;}
+  nav.links a:hover{color:var(--text);}
+  .nav-social{display:flex;gap:14px;align-items:center;}
+  .nav-social a{color:var(--text-dim);transition:color .2s, transform .2s;}
+  .nav-social a:hover{color:var(--accent);transform:translateY(-1px);}
+  .nav-social svg{width:17px;height:17px;}
+  .lang-switch{
+    display:flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;color:var(--text-dim);
+    border-left:1px solid var(--line);padding-left:14px;margin-left:2px;
+  }
+  .lang-switch a{padding:2px 4px;transition:color .2s;}
+  .lang-switch a.active{color:var(--accent);}
+  .lang-switch a:not(.active):hover{color:var(--text);}
+
+  /* HERO */
+  .hero{
+    padding:96px 24px 72px;
+    text-align:center;
+    position:relative;
+  }
+  .hero .logo-mark{
+    width:220px;
+    margin:0 auto 8px;
+    border-radius:20px;
+    box-shadow:0 30px 80px -20px rgba(0,20,50,0.8);
+  }
+  .kicker{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    background:rgba(127,184,255,0.08);
+    border:1px solid rgba(127,184,255,0.22);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(30px,5vw,46px);
+    margin:0 0 12px;
+    font-weight:650;
+    letter-spacing:-0.5px;
+  }
+  .hero .role{
+    color:var(--text-dim);
+    font-size:17px;
+    max-width:640px;
+    margin:0 auto 28px;
+  }
+  .hero-cta{
+    display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:14px;font-weight:600;
+    border:1px solid var(--line-strong);
+    transition:all .2s;
+  }
+  .btn.primary{
+    background:linear-gradient(180deg,#1a3a66,#0f2749);
+    border-color:rgba(127,184,255,0.35);
+    color:#fff;
+  }
+  .btn.primary:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(127,184,255,0.12);}
+  .btn.ghost{color:var(--text-dim);}
+  .btn.ghost:hover{color:var(--text);border-color:var(--text-dim);}
+
+  .social-row{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  }
+  .social-btn{
+    width:46px;height:46px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    border:1px solid var(--line-strong);
+    background:rgba(255,255,255,0.02);
+    color:var(--text-dim);
+    transition:all .2s;
+  }
+  .social-btn svg{width:19px;height:19px;}
+  .social-btn:hover{
+    color:#fff;
+    border-color:var(--accent);
+    background:rgba(127,184,255,0.1);
+    transform:translateY(-2px);
+  }
+
+  /* SECTIONS */
+  section{padding:64px 24px;}
+  .section-inner{max-width:900px;margin:0 auto;}
+  .eyebrow{
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--accent-dim);margin-bottom:10px;font-weight:700;
+  }
+  h2{font-size:26px;margin:0 0 20px;font-weight:650;letter-spacing:-.3px;}
+  h3.sub-heading{font-size:15px;margin:36px 0 16px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+  h3.sub-heading:first-of-type{margin-top:4px;}
+  .divider{border:none;border-top:1px solid var(--line);margin:0;}
+
+  /* BIO */
+  .bio p{color:var(--text-dim);font-size:16px;max-width:720px;}
+  .bio p + p{margin-top:14px;}
+  .bio strong{color:var(--text);font-weight:600;}
+
+  /* CHIPS */
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+  .chip{
+    font-size:13px;color:var(--text-dim);
+    border:1px solid var(--line-strong);
+    background:rgba(255,255,255,0.02);
+    padding:7px 14px;border-radius:999px;
+  }
+  .chip.accent{color:var(--accent);border-color:rgba(127,184,255,0.3);background:rgba(127,184,255,0.08);}
+
+  /* TIMELINE */
+  .timeline{display:flex;flex-direction:column;gap:0;}
+  .tl-item{
+    position:relative;
+    padding:0 0 28px 26px;
+    border-left:1px solid var(--line);
+  }
+  .tl-item:last-child{padding-bottom:2px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-5px;top:4px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px rgba(127,184,255,0.15);
+  }
+  .tl-date{font-size:12.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+  .tl-title{font-size:16px;font-weight:650;color:var(--text);margin-bottom:2px;}
+  .tl-org{font-size:14px;color:var(--accent-dim);margin-bottom:8px;}
+  .tl-desc{font-size:14.5px;color:var(--text-dim);max-width:680px;}
+
+  /* PROJECTS */
+  .projects-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  }
+  @media(max-width:720px){.projects-grid{grid-template-columns:1fr;}}
+  .project-card{
+    background:linear-gradient(160deg, var(--navy-soft), var(--bg-1));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px;
+    display:flex;flex-direction:column;gap:14px;
+    transition:border-color .2s, transform .2s;
+  }
+  .project-card:hover{border-color:var(--line-strong);transform:translateY(-3px);}
+  .project-icon{
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(127,184,255,0.1);
+    border:1px solid rgba(127,184,255,0.2);
+    color:var(--accent);
+  }
+  .project-icon svg{width:22px;height:22px;}
+  .project-card h3{margin:0;font-size:18px;font-weight:650;}
+  .project-card p{margin:0;color:var(--text-dim);font-size:14.5px;flex-grow:1;}
+  .project-tag{
+    font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .project-link{
+    font-size:14px;font-weight:600;color:var(--accent);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .project-link svg{width:14px;height:14px;transition:transform .2s;}
+  .project-link:hover svg{transform:translate(2px,-2px);}
+
+  /* PUBLICATIONS */
+  .pub-list{display:flex;flex-direction:column;}
+  .pub{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .pub:last-child{border-bottom:none;}
+  .pub-meta{
+    display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    font-size:12.5px;color:var(--text-faint);
+  }
+  .pub-journal{color:var(--accent-dim);font-weight:600;}
+  .pub-title{font-size:16.5px;font-weight:600;color:var(--text);}
+  .pub-title a{transition:color .2s;}
+  .pub-title a:hover{color:var(--accent);}
+  .pub-authors{font-size:13.5px;color:var(--text-dim);}
+  .pub-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:2px;}
+  .pub-link{
+    font-size:13px;color:var(--accent);font-weight:600;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .pub-link.muted{color:var(--text-dim);}
+
+  .rg-stats{
+    display:flex;gap:28px;margin-top:8px;margin-bottom:8px;flex-wrap:wrap;
+  }
+  .rg-stat{}
+  .rg-stat .num{font-size:24px;font-weight:700;color:var(--text);}
+  .rg-stat .label{font-size:12px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;}
+
+  /* CONFERENCES (details/summary) */
+  details.conf{
+    margin-top:16px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 22px;
+    background:rgba(255,255,255,0.015);
+  }
+  details.conf summary{
+    cursor:pointer;
+    font-size:14.5px;font-weight:650;color:var(--text);
+    list-style:none;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  details.conf summary::-webkit-details-marker{display:none;}
+  details.conf summary::after{
+    content:"+";
+    font-size:20px;color:var(--accent);font-weight:400;
+    transition:transform .2s;
+  }
+  details.conf[open] summary::after{transform:rotate(45deg);}
+  .conf-list{margin-top:18px;display:flex;flex-direction:column;gap:16px;}
+  .conf-item{font-size:14px;color:var(--text-dim);padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .conf-item:last-child{border-bottom:none;padding-bottom:0;}
+  .conf-authors{color:var(--text-faint);font-size:12.5px;display:block;margin-bottom:3px;}
+  .conf-title{color:var(--text);font-weight:600;display:block;margin-bottom:3px;}
+  .conf-venue{color:var(--text-faint);font-size:12.5px;}
+
+  /* SKILLS / COURSES LISTS */
+  .simple-list{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;
+    margin-top:6px;
+  }
+  @media(max-width:640px){.simple-list{grid-template-columns:1fr;}}
+  .simple-list li{
+    font-size:14.5px;color:var(--text-dim);
+    list-style:none;position:relative;padding-left:18px;
+  }
+  .simple-list li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--accent-dim);
+  }
+  ul.simple-list{margin:6px 0 0;padding:0;}
+
+  /* CONTACT / SOCIAL GRID */
+  .contact-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media(max-width:720px){.contact-grid{grid-template-columns:repeat(2,1fr);}}
+  .contact-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 18px;
+    text-align:center;
+    background:rgba(255,255,255,0.015);
+    transition:all .2s;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .contact-card:hover{border-color:var(--accent);background:rgba(127,184,255,0.06);transform:translateY(-3px);}
+  .contact-card svg{width:26px;height:26px;color:var(--accent);}
+  .contact-card .name{font-size:14px;font-weight:650;}
+  .contact-card .handle{font-size:12px;color:var(--text-faint);word-break:break-word;}
+
+  footer{
+    padding:40px 24px 60px;
+    text-align:center;
+    color:var(--text-faint);
+    font-size:13px;
+  }
+  footer .brand-mini{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;}
+  footer .brand-mini img{width:22px;height:22px;border-radius:50%;}
+  footer .visits{margin-top:16px;display:flex;justify-content:center;}
+  footer .visits img{height:20px;border-radius:4px;}
+
+  /* PROFESSIONAL REFINEMENT */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background-image:linear-gradient(rgba(127,184,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(127,184,255,.025) 1px,transparent 1px);
+    background-size:72px 72px;mask-image:linear-gradient(to bottom,black,transparent 72%);
+  }
+  header.nav .wrap{min-height:68px;flex-wrap:nowrap;}
+  .brand{white-space:nowrap}.brand img{border-radius:0;mix-blend-mode:screen;filter:contrast(1.08) drop-shadow(0 6px 14px rgba(73,145,230,.22))}
+  nav.links a{position:relative;padding:8px 0;white-space:nowrap}
+  nav.links a::after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:var(--accent);transition:right .2s ease}
+  nav.links a:hover::after{right:0}
+  .hero{min-height:calc(100vh - 68px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:72px}
+  .hero::after{content:"";position:absolute;width:520px;height:520px;top:4%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(76,142,224,.13),transparent 67%);z-index:-1;pointer-events:none}
+  .hero .logo-mark{width:clamp(170px,22vw,240px);border-radius:0;mix-blend-mode:screen;filter:contrast(1.07) drop-shadow(0 24px 48px rgba(51,128,220,.2));-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 47%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 47%,#000 58%,transparent 100%)}
+  .hero h1{font-size:clamp(42px,7vw,72px);line-height:1.05;letter-spacing:-2.2px}
+  .hero .role{font-size:clamp(16px,2vw,19px);line-height:1.7;max-width:730px}
+  .section-inner{max-width:980px}
+  section{padding:88px 24px;scroll-margin-top:70px}
+  h2{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-1px;margin-bottom:30px}
+  .eyebrow{color:var(--accent);letter-spacing:2.4px}
+  .bio p{font-size:16.5px;line-height:1.85;max-width:840px}
+  .project-card{padding:30px;border-color:rgba(127,184,255,.12);box-shadow:0 20px 50px rgba(0,0,0,.14)}
+  .pub{padding:26px 0}.pub-title{font-size:17px;line-height:1.55}
+  .rg-stats{padding:20px 24px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.018);width:max-content;max-width:100%}
+  .contact-card{min-height:138px;justify-content:center}
+  .owner-tools{position:fixed;right:18px;bottom:18px;z-index:100;display:none;gap:8px;padding:8px;border:1px solid rgba(127,184,255,.24);border-radius:14px;background:rgba(5,13,26,.94);box-shadow:0 18px 50px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
+  .owner-tools.visible{display:flex}.owner-tools button{font:inherit;font-size:12px;font-weight:700;color:var(--text);border:1px solid var(--line-strong);border-radius:9px;background:rgba(255,255,255,.04);padding:8px 11px;cursor:pointer}.owner-tools button:hover{border-color:var(--accent)}
+  .owner-mode [data-edit]{outline:1px dashed rgba(127,184,255,.55);outline-offset:5px;border-radius:3px;cursor:text}.owner-mode [data-edit]:focus{outline:2px solid var(--accent);background:rgba(127,184,255,.07)}
+  .edit-note{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:101;background:#102847;color:#eaf4ff;border:1px solid rgba(127,184,255,.4);border-radius:999px;padding:9px 16px;font-size:12px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  @media(max-width:900px){header.nav .wrap{overflow-x:auto;scrollbar-width:none}.nav-social{margin-left:auto}nav.links{display:none}.hero{min-height:auto;padding-top:76px;padding-bottom:76px}.hero h1{letter-spacing:-1.4px}}
+  @media(max-width:620px){.wrap{padding-left:18px;padding-right:18px}.nav-social>a{display:none}.hero{padding-left:20px;padding-right:20px}.hero .role br{display:none}.hero-cta{margin-bottom:34px}section{padding:66px 20px}.rg-stats{width:100%;justify-content:space-between;gap:14px}.contact-grid{grid-template-columns:1fr 1fr}.contact-card{padding:18px 10px}.owner-tools{left:12px;right:12px;justify-content:center}}
+</style>
+<link rel="stylesheet" href="assets/professional.css">
+</head>
+<body class="profile-page">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index-en.html" aria-label="Back to home">
+      <img class="brand-signature" src="assets/kacper-logo-transparent.png" alt="Kacper Prokop">
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/kacper-prokop-51823536b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://www.researchgate.net/profile/Kacper-Prokop-2" target="_blank" rel="noopener" aria-label="ResearchGate">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM11.5 8.14c1.36 0 2.13.72 2.13 1.9 0 .77-.36 1.36-1.02 1.68.86.32 1.27 1 1.27 2.05 0 1.5-1.1 2.36-2.9 2.36H7.9V8.14h3.6zM9.34 9.6v1.66h1.86c.6 0 .95-.32.95-.85 0-.5-.35-.81-.95-.81H9.34zm0 3.05v1.85h2.06c.66 0 1.05-.35 1.05-.93 0-.57-.4-.92-1.05-.92H9.34zm7.86-4.68c1.83 0 2.9 1.08 2.9 2.57 0 1.1-.6 1.94-1.6 2.31l1.75 3.02h-1.98l-1.5-2.72h-.98v2.72h-1.78V7.97h3.19zm-.1 1.5h-1.31v2.09h1.31c.75 0 1.16-.4 1.16-1.05 0-.65-.4-1.04-1.16-1.04z"/></svg>
+      </a>
+      <a href="https://x.com/KacperProkop" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/kcpr.prkp/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56a5.9 5.9 0 0 0-2.13 1.39A5.9 5.9 0 0 0 .62 4.14C.32 4.9.12 5.77.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.06 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.06c1.28-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.63.56-2.91.05-1.28.06-1.69.06-4.95s-.01-3.67-.06-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.62c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+      </a>
+      <span class="lang-switch">
+        <a href="profile.html">PL</a><span>/</span><a href="profile-en.html" class="active">EN</a>
+      </span>
+    </div>
+  </div>
+</header>
+
+<div id="top" class="hero">
+  <img class="personal-logo" src="assets/kacper-logo-transparent.png" alt="Kacper Prokop">
+  <div class="hero-signature" aria-hidden="true"><span>KP</span><i></i><small>Neurosurgery<br>Research</small></div>
+  <div class="project-portals" aria-label="Kacper Prokop's projects">
+    <a class="portal portal-neuroprogress" href="https://neuroprogress.app" target="_blank" rel="noopener">
+      <span class="portal-mark"><img src="assets/neuroprogress-mark.png" alt=""></span>
+      <span class="portal-copy"><small>Learning platform</small><strong>NeuroProgress</strong><em>neuroprogress.app</em></span>
+      <span class="portal-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="portal portal-library" href="https://bibliotekaneurochirurgiczna.com" target="_blank" rel="noopener">
+      <span class="portal-mark"><img src="assets/library-logo-transparent.png" alt=""></span>
+      <span class="portal-copy"><small>Knowledge and resources</small><strong>Biblioteka<br>Neurochirurgiczna</strong><em>bibliotekaneurochirurgiczna.com</em></span>
+      <span class="portal-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <div class="kicker">Neurosurgery · Research · Technology</div>
+  <h1>Kacper Prokop</h1>
+  <p class="role" data-edit="hero-role">
+    Neurosurgery Resident · PhD Candidate · Clinical Researcher<br>
+    Department of Neurosurgery, Medical University of Białystok
+  </p>
+  <div class="hero-cta">
+    <a class="btn primary" href="#publications">View publications</a>
+    <a class="btn ghost" href="#experience">Experience &amp; education</a>
+  </div>
+  <div class="social-row">
+    <a class="social-btn" href="https://www.linkedin.com/in/kacper-prokop-51823536b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a class="social-btn" href="https://www.researchgate.net/profile/Kacper-Prokop-2" target="_blank" rel="noopener" aria-label="ResearchGate">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM11.5 8.14c1.36 0 2.13.72 2.13 1.9 0 .77-.36 1.36-1.02 1.68.86.32 1.27 1 1.27 2.05 0 1.5-1.1 2.36-2.9 2.36H7.9V8.14h3.6zM9.34 9.6v1.66h1.86c.6 0 .95-.32.95-.85 0-.5-.35-.81-.95-.81H9.34zm0 3.05v1.85h2.06c.66 0 1.05-.35 1.05-.93 0-.57-.4-.92-1.05-.92H9.34zm7.86-4.68c1.83 0 2.9 1.08 2.9 2.57 0 1.1-.6 1.94-1.6 2.31l1.75 3.02h-1.98l-1.5-2.72h-.98v2.72h-1.78V7.97h3.19zm-.1 1.5h-1.31v2.09h1.31c.75 0 1.16-.4 1.16-1.05 0-.65-.4-1.04-1.16-1.04z"/></svg>
+    </a>
+    <a class="social-btn" href="https://x.com/KacperProkop" target="_blank" rel="noopener" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="social-btn" href="https://www.instagram.com/kcpr.prkp/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56a5.9 5.9 0 0 0-2.13 1.39A5.9 5.9 0 0 0 .62 4.14C.32 4.9.12 5.77.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.06 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.06c1.28-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.63.56-2.91.05-1.28.06-1.69.06-4.95s-.01-3.67-.06-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.62c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+    </a>
+  </div>
+  <a class="profile-entry" href="#about"><span>Professional profile</span><span aria-hidden="true">↓</span></a>
+</div>
+
+<hr class="divider">
+
+<section id="about">
+  <div class="section-inner bio">
+    <div class="eyebrow">About</div>
+    <h2>Clinical and<br>academic profile</h2>
+
+    <div class="about-layout">
+      <div class="about-copy">
+        <p class="bio-lead" data-edit="bio-intro">
+          I am a <strong>neurosurgery resident and PhD candidate at the Department of Neurosurgery, Medical University of Białystok</strong>. I combine clinical practice with research into optic nerve and orbital disorders and cerebrospinal fluid circulation.
+        </p>
+        <p data-edit="bio-research">
+          My academic work focuses on mechanism-based surgical treatment of visual dysfunction, including optic nerve sheath fenestration and endoscopic optic nerve decompression. My experience includes clinical data analysis, ophthalmological outcome assessment, radiological interpretation, and evaluation of CSF hydrodynamics using lumbar infusion testing and ICM+ software.
+        </p>
+        <p data-edit="bio-project">
+          Alongside my clinical and academic work, I develop <strong>NeuroProgress</strong> — a private learning system for neurosurgeons and residents that brings together structured planning, anatomy, a resource library, and measurable progress.
+        </p>
+      </div>
+
+      <aside class="about-facts" aria-label="Professional details">
+        <div class="about-fact"><span>Role</span><strong>Neurosurgery<br>resident</strong></div>
+        <div class="about-fact"><span>Affiliation</span><strong>Medical University<br>of Białystok</strong></div>
+        <div class="about-fact"><span>Academic track</span><strong>PhD candidate · clinical researcher</strong></div>
+        <div class="about-fact"><span>Location</span><strong>Białystok, Poland</strong></div>
+      </aside>
+    </div>
+
+    <div class="about-details">
+      <div class="research-area">
+        <h3>Main research interests</h3>
+        <div class="research-list">
+          <span>Skull base surgery</span>
+          <span>Orbital neurosurgery</span>
+          <span>Optic nerve surgery</span>
+          <span>Idiopathic intracranial hypertension</span>
+          <span>CSF circulation and hydrodynamics</span>
+          <span>Lumbar infusion testing</span>
+        </div>
+      </div>
+      <div class="membership-area">
+        <h3>Professional memberships</h3>
+        <ul>
+          <li>European Association of Neurosurgical Societies</li>
+          <li>AO Spine</li>
+          <li>Polish Society of Neurosurgeons</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="eyebrow">Experience and education</div>
+    <h2>Clinical and academic path</h2>
+
+    <h3 class="sub-heading">Clinical experience</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">December 2024 – present</div>
+        <div class="tl-title">Neurosurgery Resident</div>
+        <div class="tl-org">Department of Neurosurgery, Medical University of Białystok / University Clinical Hospital in Białystok</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">October 2023 – October 2024</div>
+        <div class="tl-title">Postgraduate Medical Internship</div>
+        <div class="tl-desc">Completed a 13-month postgraduate medical internship.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Education</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2023 – present</div>
+        <div class="tl-title">PhD Candidate</div>
+        <div class="tl-org">Medical University of Białystok, Department of Neurosurgery</div>
+        <div class="tl-desc">
+          Research area: interdisciplinary treatment of orbital disorders in patients managed at the Department
+          of Neurosurgery, University Clinical Hospital in Białystok. The doctoral project focuses on surgical
+          management of orbital and optic nerve-related pathologies, including operative strategy, treatment
+          outcomes, safety profile, visual function, cosmetic effects, and interdisciplinary decision-making.
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2017 – 2023</div>
+        <div class="tl-title">Doctor of Medicine</div>
+        <div class="tl-org">Medical University of Białystok</div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Selected skills</h3>
+    <ul class="simple-list">
+      <li>Clinical neurosurgical assessment</li>
+      <li>Medical literature review and critical appraisal</li>
+      <li>Scientific manuscript preparation</li>
+      <li>Preparation of responses to peer reviewers</li>
+      <li>Clinical database management</li>
+      <li>Analysis of ophthalmological outcomes (visual field, VEP, OCT RNFL)</li>
+      <li>Interpretation of CSF hydrodynamic parameters</li>
+      <li>Lumbar infusion testing and ICM+ software</li>
+      <li>Academic writing in English</li>
+    </ul>
+
+    <h3 class="sub-heading">Courses and training</h3>
+    <ul class="simple-list">
+      <li>EANS Cranial Step I</li>
+      <li>EANS White Matter Dissection</li>
+      <li>EANS Spinal Step I</li>
+      <li>360° to Spine: Cervical Spine and Cervicothoracic Junction</li>
+      <li>AO Spine Principles Level Specimen Course — From Freehand to Robotics</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="publications">
+  <div class="section-inner">
+    <div class="eyebrow">Publications</div>
+    <h2>Scientific research</h2>
+
+    <div class="rg-stats">
+      <div class="rg-stat"><div class="num">4</div><div class="label">Publications</div></div>
+      <div class="rg-stat"><div class="num">255</div><div class="label">Reads</div></div>
+      <div class="rg-stat"><div class="num">18</div><div class="label">Citations</div></div>
+    </div>
+
+    <div class="pub-list">
+
+      <div class="pub">
+        <div class="pub-meta"><span class="pub-journal">Advances in Medical Sciences</span><span>·</span><span>2026;71(2):175–184</span></div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.1016/j.advms.2026.04.004" target="_blank" rel="noopener">
+            Minimally invasive percutaneous procedure for the treatment of a contained cervical disc herniation — a preliminary prospective study
+          </a>
+        </div>
+        <div class="pub-authors">Rybaczek M, Polityńska-Lewko B, Mariak Z, Prokop K, Sawicki K, Opęchowska A, Grabala P, Łysoń T.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.1016/j.advms.2026.04.004" target="_blank" rel="noopener">DOI: 10.1016/j.advms.2026.04.004</a>
+          <a class="pub-link muted" href="https://pubmed.ncbi.nlm.nih.gov/42066903/" target="_blank" rel="noopener">PMID: 42066903</a>
+          <a class="pub-link muted" href="https://www.researchgate.net/publication/404380536_Minimally_invasive_percutaneous_procedure_for_the_treatment_of_a_contained_cervical_disc_herniation_-_a_preliminary_prospective_study" target="_blank" rel="noopener">ResearchGate →</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-meta"><span class="pub-journal">Journal of Neurosurgery</span><span>·</span><span>2026;144(4):846–856</span></div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.3171/2025.8.JNS251211" target="_blank" rel="noopener">
+            Beyond idiopathic intracranial hypertension: optic nerve decompression for vision preservation in cerebrospinal fluid flow disorders. A mechanism-based approach
+          </a>
+        </div>
+        <div class="pub-authors">Prokop K, Opęchowska A, Sawicki K, Zarzecki M, Sieśkiewicz A, Łysoń T.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.3171/2025.8.JNS251211" target="_blank" rel="noopener">DOI: 10.3171/2025.8.JNS251211</a>
+          <a class="pub-link muted" href="https://pubmed.ncbi.nlm.nih.gov/41349016/" target="_blank" rel="noopener">PMID: 41349016</a>
+          <a class="pub-link muted" href="https://www.researchgate.net/publication/398402915_Beyond_idiopathic_intracranial_hypertension_optic_nerve_decompression_for_vision_preservation_in_cerebrospinal_fluid_flow_disorders_A_mechanism-based_approach" target="_blank" rel="noopener">ResearchGate →</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-meta"><span class="pub-journal">Journal of Clinical Medicine</span><span>·</span><span>2025;14(18):6378</span></div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.3390/jcm14186378" target="_blank" rel="noopener">
+            Long-term clinical efficacy of the Disc-FX procedure in contained disc herniation: a 7-year follow-up from a single-center cohort study
+          </a>
+        </div>
+        <div class="pub-authors">Rybaczek M, Prokop K, Sawicki K, Rutkowski R, Lebejko A, Perestret G, Mariak Z, Grabala P, Łysoń T.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.3390/jcm14186378" target="_blank" rel="noopener">DOI: 10.3390/jcm14186378</a>
+          <a class="pub-link muted" href="https://pubmed.ncbi.nlm.nih.gov/41010582/" target="_blank" rel="noopener">PMID: 41010582</a>
+          <a class="pub-link muted" href="https://www.researchgate.net/publication/395396070_Long-Term_Clinical_Efficacy_of_the_Disc-FX_Procedure_in_Contained_Disc_Herniation_A_7-Year_Follow-Up_from_a_Single-Center_Cohort_Study" target="_blank" rel="noopener">ResearchGate →</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-meta"><span class="pub-journal">Acta Neurochirurgica</span><span>·</span><span>2024;166:476</span></div>
+        <div class="pub-title">
+          <a href="https://doi.org/10.1007/s00701-024-06345-y" target="_blank" rel="noopener">
+            Effectiveness of optic nerve sheath fenestration in preserving vision in idiopathic intracranial hypertension: an updated meta-analysis and systematic review
+          </a>
+        </div>
+        <div class="pub-authors">Prokop K, Opęchowska A, Sieśkiewicz A, Lisowski Ł, Mariak Z, Łysoń T.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.1007/s00701-024-06345-y" target="_blank" rel="noopener">DOI: 10.1007/s00701-024-06345-y</a>
+          <a class="pub-link muted" href="https://pubmed.ncbi.nlm.nih.gov/39585430/" target="_blank" rel="noopener">PMID: 39585430</a>
+          <a class="pub-link muted" href="https://www.researchgate.net/publication/386111092_Effectiveness_of_optic_nerve_sheath_fenestration_in_preserving_vision_in_idiopathic_intracranial_hypertension_an_updated_meta-analysis_and_systematic_review" target="_blank" rel="noopener">ResearchGate →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <details class="conf">
+      <summary>Conference presentations &amp; abstracts (17)</summary>
+      <div class="conf-list">
+
+        <div class="conf-item">
+          <span class="conf-authors">Prokop K, Opęchowska A, Sawicki K, Chrzanowski R, Zarzecki M, Sieśkiewicz A, Łysoń T.</span>
+          <span class="conf-title">Beyond idiopathic intracranial hypertension — optic nerve decompression for vision preservation in cerebrospinal fluid flow disorders: a mechanism-based approach.</span>
+          <span class="conf-venue">Annual Congress of the Czech Neurosurgical Society &amp; Joint Meeting with the Polish Society of Neurosurgeons, Ostrava, Czech Republic, 5–7 November 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Prokop K, Opęchowska A, Sawicki K, Lisowski Ł, Sieśkiewicz A, Łysoń T.</span>
+          <span class="conf-title">Effectiveness of transconjunctival endoscopic optic nerve sheath fenestration in preserving vision in patients with various cerebrospinal fluid circulation disorders.</span>
+          <span class="conf-venue">56th Congress of Polish Ophthalmologists, Kraków, Poland, 5–7 June 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Opęchowska A, Prokop K, Sieśkiewicz A, Lisowski Ł, Mariak Z, Łysoń T.</span>
+          <span class="conf-title">Effectiveness of optic nerve sheath fenestration in preserving vision in idiopathic intracranial hypertension: a meta-analysis and systematic review.</span>
+          <span class="conf-venue">56th Congress of Polish Ophthalmologists, Kraków, Poland, 5–7 June 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Prokop K, Rybaczek M, Lisowski Ł, Sieśkiewicz A, Łysoń T.</span>
+          <span class="conf-title">Endoscopic approaches for the removal of orbital foreign bodies.</span>
+          <span class="conf-venue">56th Congress of Polish Ophthalmologists, Kraków, Poland, 5–7 June 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Chrzanowski R, Rutkowski R, Prokop K, Łysoń T.</span>
+          <span class="conf-title">Minimally invasive transorbital surgery of intracranial tumours — a first clinical experience.</span>
+          <span class="conf-venue">Annual Congress of the Czech Neurosurgical Society &amp; Joint Meeting with the Polish Society of Neurosurgeons, Ostrava, Czech Republic, 5–7 November 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Perestret G, Prokop K, Chrzanowski R, Łysoń T.</span>
+          <span class="conf-title">Reconstructive techniques in cerebrospinal fluid leak repair: a long-term comparative study of surgical strategies.</span>
+          <span class="conf-venue">Annual Congress of the Czech Neurosurgical Society &amp; Joint Meeting with the Polish Society of Neurosurgeons, Ostrava, Czech Republic, 5–7 November 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Zabrocka P, Giba A, Rutkowski R, Turek G, Łysoń T, Wilk P, Prokop K, Rybaczek M, Mariak Z.</span>
+          <span class="conf-title">Anatomic morphology of neurovascular conflict in 150 patients operated on for trigeminal neuralgia.</span>
+          <span class="conf-venue">47th Congress of the Polish Society of Neurosurgeons, Katowice, Poland, 17–20 September 2025</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Zabrocka P, Giba A, Rutkowski R, Łysoń T, Wilk P, Prokop K, Rybaczek M, Mariak Z.</span>
+          <span class="conf-title">Anatomic morphology of neurovascular conflict in 150 patients operated on for trigeminal neuralgia.</span>
+          <span class="conf-venue">NEUROTRIP 9, Warsaw, Poland, 25 April 2026</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Niczyporuk P, Giba A, Prokop K, Rybaczek M, Zajkowska I.</span>
+          <span class="conf-title">An unusual case of optic nerve schwannoma in a young patient.</span>
+          <span class="conf-venue">18th Bialystok International Medical Congress for Young Scientists, Białystok, Poland, 10–12 May 2024</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Opęchowska A, Niczyporuk P, Giba A, Prokop K, Rybaczek M.</span>
+          <span class="conf-title">Astrocytoma WHO grade 4 as a tumor affecting increasingly younger patients — a therapeutic challenge in a 22-year-old female patient with suspected central neurocytoma.</span>
+          <span class="conf-venue">NEUROTRIP 7, Warsaw, Poland, 16 March 2024</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Opęchowska A, Niczyporuk P, Giba A, Prokop K, Krupa M, Rybaczek M, Sieśkiewicz A, Łysoń T.</span>
+          <span class="conf-title">Radical resection of orbital tumors — high histopathological diversity and favorable postoperative outcomes as arguments in favor of surgical management.</span>
+          <span class="conf-venue">NEUROTRIP 7, Warsaw, Poland, 16 March 2024</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Mariak Z, Łysoń T, Prokop K, Krupa M, Giba A, Rybaczek M.</span>
+          <span class="conf-title">Endoscope-assisted decompression of the trigeminal nerve.</span>
+          <span class="conf-venue">46th Congress of the Polish Society of Neurosurgeons and Southeast European Neurosurgical Society, Rzeszów, Poland, 20–23 September 2023</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Prokop K, Łysoń T, Krupa M, Rybaczek M, Giba A, Mariak Z, Sieśkiewicz A, Chrzanowski R, Wilk P.</span>
+          <span class="conf-title">Orbital tumors: high diversity of pathological lesions as an argument for more active endoscopic diagnostics and radical treatment.</span>
+          <span class="conf-venue">46th Congress of the Polish Society of Neurosurgeons and Southeast European Neurosurgical Society, Rzeszów, Poland, 20–23 September 2023</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Rybaczek M, Buczyło P, Giba A, Prokop K, Krupa M, Łysoń T, Mariak Z, Matowicka-Karna J, Koper-Lenkiewicz OM, Kamińska J.</span>
+          <span class="conf-title">Pro- and anti-inflammatory interleukins involved in the formation and progression of intracranial aneurysms.</span>
+          <span class="conf-venue">46th Congress of the Polish Society of Neurosurgeons and Southeast European Neurosurgical Society, Rzeszów, Poland, 20–23 September 2023</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Wilk P, Siemion K, Kiśluk J, Giba A, Prokop K, Łysoń T, Mariak Z, Sieśkiewicz A.</span>
+          <span class="conf-title">A new perspective on the diagnosis and treatment of orbital pseudotumor: the potential of next-generation sequencing in detecting fusion genes.</span>
+          <span class="conf-venue">46th Congress of the Polish Society of Neurosurgeons and Southeast European Neurosurgical Society, Rzeszów, Poland, 20–23 September 2023</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Łysoń T, Prokop K, Rybaczek M, Lebejko A, Mariak Z.</span>
+          <span class="conf-title">Should patients with low back pain/intermittent sciatica but without confirmed disc herniation undergo surgery? Disc-FX as a minimally invasive alternative to conservative treatment.</span>
+          <span class="conf-venue">45th Congress of the Polish Society of Neurosurgeons, Kraków, Poland, 13–16 October 2021</span>
+        </div>
+
+        <div class="conf-item">
+          <span class="conf-authors">Chrzanowski R, Rybaczek M, Sieśkiewicz A, Lisowski Ł, Konopińska J, Prokop K, Mariak Z.</span>
+          <span class="conf-title">Outcomes of transconjunctival endoscopic optic nerve sheath fenestration in patients with progressive visual impairment.</span>
+          <span class="conf-venue">45th Congress of the Polish Society of Neurosurgeons, Kraków, Poland, 13–16 October 2021</span>
+        </div>
+
+      </div>
+    </details>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="eyebrow">Contact</div>
+    <h2>Contact and profiles</h2>
+    <div class="contact-grid">
+
+      <a class="contact-card" href="https://www.linkedin.com/in/kacper-prokop-51823536b/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        <div class="name">LinkedIn</div>
+        <div class="handle">Kacper Prokop</div>
+      </a>
+
+      <a class="contact-card" href="https://www.researchgate.net/profile/Kacper-Prokop-2" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM11.5 8.14c1.36 0 2.13.72 2.13 1.9 0 .77-.36 1.36-1.02 1.68.86.32 1.27 1 1.27 2.05 0 1.5-1.1 2.36-2.9 2.36H7.9V8.14h3.6zM9.34 9.6v1.66h1.86c.6 0 .95-.32.95-.85 0-.5-.35-.81-.95-.81H9.34zm0 3.05v1.85h2.06c.66 0 1.05-.35 1.05-.93 0-.57-.4-.92-1.05-.92H9.34zm7.86-4.68c1.83 0 2.9 1.08 2.9 2.57 0 1.1-.6 1.94-1.6 2.31l1.75 3.02h-1.98l-1.5-2.72h-.98v2.72h-1.78V7.97h3.19zm-.1 1.5h-1.31v2.09h1.31c.75 0 1.16-.4 1.16-1.05 0-.65-.4-1.04-1.16-1.04z"/></svg>
+        <div class="name">ResearchGate</div>
+        <div class="handle">Kacper Prokop</div>
+      </a>
+
+      <a class="contact-card" href="https://x.com/KacperProkop" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <div class="name">X (Twitter)</div>
+        <div class="handle">@KacperProkop</div>
+      </a>
+
+      <a class="contact-card" href="https://www.instagram.com/kcpr.prkp/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56a5.9 5.9 0 0 0-2.13 1.39A5.9 5.9 0 0 0 .62 4.14C.32 4.9.12 5.77.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.06 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.06c1.28-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.63.56-2.91.05-1.28.06-1.69.06-4.95s-.01-3.67-.06-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.62c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+        <div class="name">Instagram</div>
+        <div class="handle">@kcpr.prkp</div>
+      </a>
+
+      <a class="contact-card" href="https://orcid.org/0000-0003-3696-447X" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.98 0 1.766.802 1.766 1.766 0 .981-.786 1.767-1.766 1.767-.98 0-1.766-.786-1.766-1.767 0-.964.786-1.766 1.766-1.766zm-1.44 3.914h2.88v11.61h-2.88V8.292zM12.24 8.292h4.914c4.638 0 6.678 3.31 6.678 5.804 0 2.716-2.124 5.805-6.66 5.805H12.24V8.292zm2.868 2.475v6.66h1.83c3.04 0 3.734-2.307 3.734-3.33 0-1.8-1.146-3.33-3.804-3.33h-1.76z"/></svg>
+        <div class="name">ORCID</div>
+        <div class="handle">0000-0003-3696-447X</div>
+      </a>
+
+      <a class="contact-card" href="mailto:kacper.prokop@sd.umb.edu.pl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5 12 13l9-6.5"/></svg>
+        <div class="name">Email</div>
+        <div class="handle">kacper.prokop@sd.umb.edu.pl</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-mini">
+    <img class="footer-signature" src="assets/kacper-logo-transparent.png" alt="Kacper Prokop">
+  </div>
+  <div class="footer-rights">© <span id="year"></span> Kacper Prokop. All rights reserved.</div>
+  <div class="built-by">Built by Kacper Prokop</div>
+  <div class="visits">
+    <img src="https://komarev.com/ghpvc/?username=kacper-prokop-homepage&label=Visitors&color=0e2a47&style=flat" alt="Website visitor counter">
+  </div>
+</footer>
+
+<div class="owner-tools" id="ownerTools" aria-label="Owner editing tools">
+  <button type="button" id="toggleEdit">Enable editing</button>
+  <button type="button" id="saveEdits">Save locally</button>
+  <button type="button" id="downloadPage">Download page</button>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (() => {
+    const params = new URLSearchParams(location.search);
+    const editableSelectors = [
+      'nav.links a', '.lang-switch a', '.eyebrow', 'h2', 'h3.sub-heading',
+      '.about-copy p', '.about-fact span', '.about-fact strong', '.about-details h3',
+      '.research-list span', '.membership-area li', '.tl-date', '.tl-title', '.tl-org', '.tl-desc',
+      '.simple-list li', '.rg-stat .num', '.rg-stat .label', '.pub-meta span', '.pub-title a',
+      '.pub-authors', '.pub-link', 'details.conf summary', '.conf-authors', '.conf-title', '.conf-venue',
+      '.contact-card .name', '.contact-card .handle', '.footer-rights', '.built-by'
+    ];
+    const fields = [...document.querySelectorAll(editableSelectors.join(','))];
+    fields.forEach((field, index) => {
+      if (!field.dataset.edit) field.dataset.edit = `content-${String(index + 1).padStart(3, '0')}`;
+    });
+    const key = 'kp-site-en-edits';
+    try {
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      fields.forEach(field => {
+        if (Object.prototype.hasOwnProperty.call(saved, field.dataset.edit)) field.innerHTML = saved[field.dataset.edit];
+      });
+    } catch (_) {}
+    if (params.get('owner') !== '1') return;
+    const tools = document.getElementById('ownerTools');
+    fields.forEach(field => field.spellcheck = true);
+    tools.classList.add('visible');
+    const saveFields = () => {
+      const data = Object.fromEntries(fields.map(field => [field.dataset.edit, field.innerHTML]));
+      localStorage.setItem(key, JSON.stringify(data));
+    };
+    let autosaveTimer;
+    document.addEventListener('input', event => {
+      if (!event.target.closest('[data-edit]')) return;
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(saveFields, 250);
+    });
+    window.addEventListener('beforeunload', saveFields);
+    document.addEventListener('click', event => {
+      const field = event.target.closest('[data-edit]');
+      if (field && document.body.classList.contains('owner-mode')) {
+        event.preventDefault();
+        event.stopPropagation();
+        field.focus();
+      }
+    }, true);
+    document.getElementById('toggleEdit').addEventListener('click', event => {
+      const active = document.body.classList.toggle('owner-mode');
+      fields.forEach(field => field.contentEditable = active ? 'true' : 'false');
+      event.currentTarget.textContent = active ? 'Finish editing' : 'Enable editing';
+    });
+    document.getElementById('saveEdits').addEventListener('click', () => {
+      saveFields();
+      const note = document.createElement('div'); note.className = 'edit-note'; note.textContent = 'Changes saved on this device.'; document.body.append(note); setTimeout(() => note.remove(), 2400);
+    });
+    document.getElementById('downloadPage').addEventListener('click', () => {
+      document.body.classList.remove('owner-mode'); fields.forEach(field => field.contentEditable = 'false'); tools.classList.remove('visible');
+      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML; tools.classList.add('visible');
+      const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([html], {type:'text/html'})); link.download = 'profile-en.html'; link.click(); URL.revokeObjectURL(link.href);
+    });
+  })();
+</script>
+
+</body>
+</html>
