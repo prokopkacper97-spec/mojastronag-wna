@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">SagBalCalc</title>
+  <desc id="desc">Krzywizna strzałkowa kręgosłupa z osią i punktami pomiarowymi</desc>
+  <path d="M41 7v50" fill="none" stroke="#8b9498" stroke-width="1.25" stroke-linecap="round" stroke-dasharray="2 3"/>
+  <path d="M21 8c10 7 12 15 6 24-5 9-4 17 7 25" fill="none" stroke="#74383d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M22.5 14.5l7.5 1.2M26 22l5 1.5M26 31l-4.5 2.5M22.5 40l6 1.5M27 49l5.5-1" fill="none" stroke="#102a38" stroke-width="1.8" stroke-linecap="round" opacity=".9"/>
+  <path d="M31 32h10M33 51h8" fill="none" stroke="#74383d" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="41" cy="32" r="2.5" fill="#102a38"/>
+  <circle cx="41" cy="51" r="1.9" fill="#74383d"/>
+</svg>
