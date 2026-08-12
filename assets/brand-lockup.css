@@ -1,34 +1,18 @@
-.brand-lockup{
-  display:inline-flex;
-  align-items:center;
-  gap:13px;
-  width:auto;
-  height:58px;
-  color:#172631;
-}
-.brand-lockup-brain,
-.brand-lockup-name{
+.brand-lockup,
+.brand-emblem{
   display:block;
   flex:0 0 auto;
+  width:82px;
+  height:70px;
   overflow:hidden;
   background-image:url("kacper-logo-transparent.png");
   background-repeat:no-repeat;
+  background-size:105px 105px;
+  background-position:center -12px;
   filter:brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(1183%) hue-rotate(159deg) brightness(90%);
 }
-.brand-lockup-brain{
-  width:82px;
-  height:53px;
-  background-size:140px 140px;
-  background-position:center -20px;
-}
-.brand-lockup-name{
-  width:210px;
-  height:48px;
-  background-size:258px 258px;
-  background-position:center -144px;
-}
+.brand-lockup-brain,
+.brand-lockup-name{display:none}
 @media(max-width:680px){
-  .brand-lockup{gap:9px;height:48px}
-  .brand-lockup-brain{width:64px;height:42px;background-size:110px 110px;background-position:center -16px}
-  .brand-lockup-name{width:158px;height:37px;background-size:196px 196px;background-position:center -109px}
+  .brand-lockup,.brand-emblem{width:68px;height:58px;background-size:90px 90px;background-position:center -10px}
 }
