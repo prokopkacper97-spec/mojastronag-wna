@@ -44,7 +44,7 @@
   const password = document.getElementById('ownerPassword');
   const error = document.getElementById('ownerLoginError');
   const toggle = document.getElementById('toggleEdit');
-  const expectedHash = 'fb646552381f1756be722c2f511f18ec408c63d9493fae644749114661311452';
+  const expectedHash = '1456658d0fd0a0ea959a201a1811fabee65e7c4b01a448869613242b7094e8dd';
 
   const showNote = message => {
     const note = document.createElement('div');
