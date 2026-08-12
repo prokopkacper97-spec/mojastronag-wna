@@ -1,0 +1,11 @@
+{
+  "name": "kacper-prokop-homepage",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  }
+}

@@ -1,30 +1,34 @@
-(() => {
+(async () => {
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('owner') !== '1') return;
-
   const isPolish = document.documentElement.lang === 'pl';
+  const language = isPolish ? 'pl' : 'en';
   const copy = isPolish ? {
-    key: 'kp-site-pl-edits',
+    draftKey: 'kp-site-pl-draft',
+    legacyKey: 'kp-site-pl-edits',
     editOn: 'Zakończ edycję',
     editOff: 'Włącz edycję',
-    saved: 'Wersja robocza została zapisana na tym urządzeniu.',
+    published: 'Zmiany zostały opublikowane online.',
+    publishing: 'Publikowanie…',
+    publish: 'Opublikuj zmiany',
     wrongPassword: 'Nieprawidłowe hasło. Spróbuj ponownie.',
-    downloaded: 'Pobrano plik gotowy do publikacji.',
-    fileName: 'profile.html'
+    unavailable: 'Panel online wymaga jeszcze aktywacji w ustawieniach Vercela.',
+    saveFailed: 'Nie udało się opublikować zmian. Spróbuj ponownie.'
   } : {
-    key: 'kp-site-en-edits',
+    draftKey: 'kp-site-en-draft',
+    legacyKey: 'kp-site-en-edits',
     editOn: 'Finish editing',
     editOff: 'Enable editing',
-    saved: 'The draft was saved on this device.',
+    published: 'Your changes are now published online.',
+    publishing: 'Publishing…',
+    publish: 'Publish changes',
     wrongPassword: 'Incorrect password. Please try again.',
-    downloaded: 'A publication-ready file has been downloaded.',
-    fileName: 'profile-en.html'
+    unavailable: 'The online editor still needs to be activated in Vercel settings.',
+    saveFailed: 'The changes could not be published. Please try again.'
   };
 
-  const selectors = [
+  const baseSelectors = [
     'nav.links a', '.lang-switch a', '.eyebrow', 'h2', 'h3.sub-heading',
     '.about-copy p', '.about-fact span', '.about-fact strong', '.about-details h3',
     '.research-list span', '.membership-area li', '.tl-date', '.tl-title', '.tl-org', '.tl-desc',
@@ -32,11 +36,53 @@
     '.pub-authors', '.pub-link', 'details.conf summary', '.conf-authors', '.conf-title', '.conf-venue',
     '.contact-card .name', '.contact-card .handle', '.footer-rights', '.built-by'
   ];
-  const fields = [...document.querySelectorAll(selectors.join(','))];
-  fields.forEach((field, index) => {
+  const baseFields = [...document.querySelectorAll(baseSelectors.join(','))];
+  baseFields.forEach((field, index) => {
     if (!field.dataset.edit) field.dataset.edit = `content-${String(index + 1).padStart(3, '0')}`;
     field.spellcheck = true;
   });
+  const extraSelectors = [
+    'h1', '.hero .role', '.portal-copy small', '.portal-copy strong', '.portal-copy em',
+    '.profile-entry span:first-child'
+  ];
+  const extraFields = [...document.querySelectorAll(extraSelectors.join(','))].filter(field => !baseFields.includes(field));
+  extraFields.forEach((field, index) => {
+    if (!field.dataset.edit) field.dataset.edit = `extra-${String(index + 1).padStart(3, '0')}`;
+    field.spellcheck = true;
+  });
+  const fields = [...baseFields, ...extraFields];
+
+  const cleanHTML = value => {
+    const template = document.createElement('template');
+    template.innerHTML = String(value || '');
+    [...template.content.querySelectorAll('*')].reverse().forEach(element => {
+      if (!['STRONG', 'EM', 'BR'].includes(element.tagName)) {
+        element.replaceWith(...element.childNodes);
+        return;
+      }
+      [...element.attributes].forEach(attribute => element.removeAttribute(attribute.name));
+    });
+    return template.innerHTML;
+  };
+
+  const applyContent = content => {
+    if (!content || typeof content !== 'object') return;
+    fields.forEach(field => {
+      if (Object.prototype.hasOwnProperty.call(content, field.dataset.edit)) {
+        field.innerHTML = cleanHTML(content[field.dataset.edit]);
+      }
+    });
+  };
+
+  const serializeFields = () => Object.fromEntries(fields.map(field => [field.dataset.edit, cleanHTML(field.innerHTML)]));
+
+  try {
+    const response = await fetch(`/api/editor?lang=${language}`, { cache: 'no-store', credentials: 'same-origin' });
+    if (response.ok) applyContent((await response.json()).content);
+  } catch (_) {}
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('owner') !== '1') return;
 
   const tools = document.getElementById('ownerTools');
   const login = document.getElementById('ownerLogin');
@@ -44,7 +90,7 @@
   const password = document.getElementById('ownerPassword');
   const error = document.getElementById('ownerLoginError');
   const toggle = document.getElementById('toggleEdit');
-  const expectedHash = '1456658d0fd0a0ea959a201a1811fabee65e7c4b01a448869613242b7094e8dd';
+  const publish = document.getElementById('publishEdits');
 
   const showNote = message => {
     const note = document.createElement('div');
@@ -52,24 +98,17 @@
     note.setAttribute('role', 'status');
     note.textContent = message;
     document.body.append(note);
-    window.setTimeout(() => note.remove(), 2600);
+    window.setTimeout(() => note.remove(), 2800);
   };
 
-  const saveFields = () => {
-    const data = Object.fromEntries(fields.map(field => [field.dataset.edit, field.innerHTML]));
-    localStorage.setItem(copy.key, JSON.stringify(data));
-  };
+  const saveDraft = () => localStorage.setItem(copy.draftKey, JSON.stringify(serializeFields()));
 
-  const loadFields = () => {
+  const loadDraft = () => {
     try {
-      const saved = JSON.parse(localStorage.getItem(copy.key) || '{}');
-      fields.forEach(field => {
-        if (Object.prototype.hasOwnProperty.call(saved, field.dataset.edit)) {
-          field.innerHTML = saved[field.dataset.edit];
-        }
-      });
+      const draft = localStorage.getItem(copy.draftKey) || localStorage.getItem(copy.legacyKey);
+      if (draft) applyContent(JSON.parse(draft));
     } catch (_) {
-      localStorage.removeItem(copy.key);
+      localStorage.removeItem(copy.draftKey);
     }
   };
 
@@ -80,46 +119,57 @@
   };
 
   const unlock = () => {
-    sessionStorage.setItem('kp-owner-session', 'active');
     login.hidden = true;
     tools.classList.add('visible');
-    loadFields();
+    loadDraft();
     setEditing(true);
   };
 
-  const hashPassword = async value => {
-    const bytes = new TextEncoder().encode(value);
-    const digest = await crypto.subtle.digest('SHA-256', bytes);
-    return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('');
-  };
-
-  if (sessionStorage.getItem('kp-owner-session') === 'active') {
-    unlock();
-  } else {
+  const showLogin = () => {
     login.hidden = false;
     window.setTimeout(() => password.focus(), 40);
+  };
+
+  try {
+    const status = await fetch('/api/editor?action=status', { cache: 'no-store', credentials: 'same-origin' });
+    if (status.ok) unlock(); else showLogin();
+  } catch (_) {
+    showLogin();
   }
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
     error.textContent = '';
-    const enteredHash = await hashPassword(password.value);
-    if (enteredHash !== expectedHash) {
-      error.textContent = copy.wrongPassword;
-      password.select();
-      return;
+    const submit = form.querySelector('button[type="submit"]');
+    submit.disabled = true;
+    try {
+      const response = await fetch('/api/editor', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'login', password: password.value })
+      });
+      if (response.ok) {
+        password.value = '';
+        unlock();
+      } else {
+        error.textContent = response.status === 503 ? copy.unavailable : copy.wrongPassword;
+        password.select();
+      }
+    } catch (_) {
+      error.textContent = copy.unavailable;
+    } finally {
+      submit.disabled = false;
     }
-    password.value = '';
-    unlock();
   });
 
   let autosaveTimer;
   document.addEventListener('input', event => {
     if (!event.target.closest('[data-edit]')) return;
     window.clearTimeout(autosaveTimer);
-    autosaveTimer = window.setTimeout(saveFields, 300);
+    autosaveTimer = window.setTimeout(saveDraft, 350);
   });
-  window.addEventListener('beforeunload', saveFields);
+  window.addEventListener('beforeunload', saveDraft);
 
   document.addEventListener('click', event => {
     const field = event.target.closest('[data-edit]');
@@ -133,39 +183,45 @@
   document.addEventListener('paste', event => {
     if (!event.target.closest('[data-edit]') || !document.body.classList.contains('owner-mode')) return;
     event.preventDefault();
-    const text = event.clipboardData.getData('text/plain');
-    document.execCommand('insertText', false, text);
+    document.execCommand('insertText', false, event.clipboardData.getData('text/plain'));
   });
 
-  toggle.addEventListener('click', () => {
-    setEditing(!document.body.classList.contains('owner-mode'));
+  toggle.addEventListener('click', () => setEditing(!document.body.classList.contains('owner-mode')));
+
+  publish.addEventListener('click', async () => {
+    saveDraft();
+    publish.disabled = true;
+    publish.textContent = copy.publishing;
+    try {
+      const response = await fetch('/api/editor', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'save', language, content: serializeFields() })
+      });
+      if (!response.ok) throw new Error('save-failed');
+      localStorage.removeItem(copy.draftKey);
+      localStorage.removeItem(copy.legacyKey);
+      showNote(copy.published);
+    } catch (_) {
+      showNote(copy.saveFailed);
+    } finally {
+      publish.disabled = false;
+      publish.textContent = copy.publish;
+    }
   });
 
-  document.getElementById('saveEdits').addEventListener('click', () => {
-    saveFields();
-    showNote(copy.saved);
-  });
-
-  document.getElementById('downloadPage').addEventListener('click', () => {
-    saveFields();
-    setEditing(false);
-    tools.classList.remove('visible');
-    login.hidden = true;
-    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-    tools.classList.add('visible');
-    const url = URL.createObjectURL(new Blob([html], {type: 'text/html'}));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = copy.fileName;
-    link.click();
-    URL.revokeObjectURL(url);
-    showNote(copy.downloaded);
-  });
-
-  document.getElementById('ownerLogout').addEventListener('click', () => {
-    saveFields();
-    sessionStorage.removeItem('kp-owner-session');
-    setEditing(false);
-    window.location.href = window.location.pathname;
+  document.getElementById('ownerLogout').addEventListener('click', async () => {
+    saveDraft();
+    try {
+      await fetch('/api/editor', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' })
+      });
+    } finally {
+      window.location.href = window.location.pathname;
+    }
   });
 })();
