@@ -13,7 +13,7 @@ img,svg{display:block;max-width:100%}
 .page-shell{min-height:100svh;max-width:1540px;margin:0 auto;padding:0 64px;display:grid;grid-template-rows:auto 1fr auto}
 
 .site-header{min-height:108px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule)}
-.personal-mark{width:122px;height:76px;display:flex;align-items:center}
+.personal-mark{width:226px;height:76px;display:flex;align-items:center}
 .personal-mark img{width:122px;height:76px;object-fit:contain;filter:brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(1271%) hue-rotate(155deg) brightness(87%)}
 .header-meta{display:flex;align-items:center;gap:36px;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
 .language{display:flex;align-items:center;gap:8px}.language a{padding:7px 2px}.language a.active{color:var(--burgundy);border-bottom:1px solid var(--burgundy)}
@@ -54,7 +54,7 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
 @media(max-width:680px){
   .page-shell{padding:0 20px}
   .site-header{min-height:82px}
-  .personal-mark,.personal-mark img{width:100px;height:62px}
+  .personal-mark{width:185px;height:62px}.personal-mark img{width:100px;height:62px}
   .header-meta>span{display:none}
   main{padding:26px 0 32px}
   .directory{grid-template-columns:1fr;max-width:420px}
