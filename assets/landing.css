@@ -47,21 +47,21 @@ main{display:flex;align-items:center;justify-content:center;padding:42px 0}
 .item-copy strong{height:58px;display:flex;align-items:flex-start;justify-content:center;font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:400;line-height:1.08;letter-spacing:-.6px}
 
 .project-glyph{color:var(--burgundy)}
-.atlas-monogram{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-5px;color:var(--ink)}
-.atlas-monogram i,.atlas-wordmark i,.recipe-wordmark i{font-style:normal;color:var(--burgundy)}
+.atlas-glyph img,.recipe-glyph img{width:80px;height:80px;object-fit:contain}
+.atlas-wordmark i,.recipe-wordmark i{font-style:normal;color:var(--burgundy)}
 .atlas-wordmark{letter-spacing:-1px!important}
 .split-wordmark span:first-child{color:var(--ink)}
 .split-wordmark span:last-child{color:var(--burgundy)}
-.drip-symbol{position:relative;width:48px;height:62px;border:2px solid var(--burgundy);border-radius:58% 42% 62% 38%;transform:rotate(45deg)}
-.drip-symbol::after{content:"";position:absolute;width:16px;height:24px;right:9px;bottom:8px;border-right:1px solid var(--ink);border-radius:50%;opacity:.65}
-.pizza-symbol{position:relative;width:68px;height:72px;background:var(--burgundy);clip-path:polygon(50% 0,100% 100%,0 100%)}
-.pizza-symbol::before{content:"";position:absolute;inset:5px 7px 8px;background:var(--paper);clip-path:polygon(50% 0,100% 100%,0 100%)}
-.pizza-symbol::after{content:"";position:absolute;width:8px;height:8px;left:25px;top:31px;border-radius:50%;background:var(--burgundy);box-shadow:18px 17px 0 var(--burgundy),-9px 22px 0 var(--ink)}
-.recipe-book{position:relative;width:80px;height:62px}
-.recipe-book::before,.recipe-book::after{content:"";position:absolute;top:7px;width:38px;height:50px;border:2px solid var(--burgundy);background:transparent}
-.recipe-book::before{left:1px;border-radius:4px 11px 4px 8px;transform:rotate(-3deg)}
-.recipe-book::after{right:1px;border-radius:11px 4px 8px 4px;transform:rotate(3deg)}
-.recipe-book i{position:absolute;left:39px;top:9px;width:2px;height:47px;background:var(--ink);z-index:2;opacity:.55}
+.dripcalc-mark{position:relative;width:76px;height:76px;display:grid;place-items:center;border:1px solid #49382d;border-radius:21px;background:#31251d;color:#fff4e6;box-shadow:inset 0 0 0 3px rgba(255,244,230,.08),5px 5px 0 rgba(217,162,118,.72)}
+.dripcalc-mark strong{height:40px;display:flex;align-items:baseline;transform:translate(-3px,-7px);font:400 40px/.9 Georgia,"Times New Roman",serif;letter-spacing:-11px}
+.dripcalc-mark strong span:last-child{transform:translateY(4px)}
+.dripcalc-mark>i{position:absolute;left:50%;bottom:8px;width:11px;height:14px;margin-left:-5px;border-radius:65% 35% 55% 45%;background:#e9a76e;transform:rotate(18deg)}
+.pizzacalc-mark{position:relative;width:80px;height:80px;border:3px solid #21452d;border-radius:50%;background:#f8f0df;box-shadow:0 0 0 5px rgba(33,69,45,.08)}
+.pizzacalc-mark::after{content:"";position:absolute;inset:16px;border:2px solid #b83828;border-radius:50%}
+.pizzacalc-mark i{position:absolute;z-index:1;width:8px;height:8px;border-radius:50%;background:#b83828}
+.pizzacalc-mark i:nth-child(1){left:27px;top:22px}
+.pizzacalc-mark i:nth-child(2){right:22px;top:34px}
+.pizzacalc-mark i:nth-child(3){left:31px;bottom:21px}
 
 .site-footer{min-height:104px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:30px}
 .social-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -108,13 +108,8 @@ main{display:flex;align-items:center;justify-content:center;padding:42px 0}
   .profile-symbol{width:92px;overflow:hidden}
   .profile-symbol .brand-emblem-tile{width:74px;height:62px;background-size:96px 96px;background-position:center -13px}
   .sagbal-logo img{width:58px;height:76px}
-  .atlas-monogram{font-size:39px}
-  .drip-symbol{width:39px;height:51px}
-  .pizza-symbol{width:48px;height:54px}
-  .pizza-symbol::after{left:18px;top:23px;transform:scale(.75)}
-  .recipe-book{width:61px;height:49px}
-  .recipe-book::before,.recipe-book::after{width:29px;height:40px}
-  .recipe-book i{left:29px;height:37px}
+  .atlas-glyph img,.recipe-glyph img{width:62px;height:62px}
+  .dripcalc-mark,.pizzacalc-mark{transform:scale(.76)}
   .item-copy{
     width:100%;height:76px;padding:0;display:flex;align-items:center;justify-content:flex-start;min-width:0
   }
