@@ -18,27 +18,50 @@ img,svg{display:block;max-width:100%}
 .header-meta{display:flex;align-items:center;gap:36px;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
 .language{display:flex;align-items:center;gap:8px}.language a{padding:7px 2px}.language a.active{color:var(--burgundy);border-bottom:1px solid var(--burgundy)}
 
-main{display:flex;align-items:center;justify-content:center;padding:56px 0}
-.directory{width:100%;max-width:1280px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.directory-item{position:relative;min-height:360px;padding:44px 24px 40px;display:grid;grid-template-rows:128px 66px;align-content:center;justify-items:center;row-gap:30px;text-align:center;border-right:1px solid var(--rule);transition:background .2s ease,color .2s ease}
-.directory-item:last-child{border-right:0}
+main{display:flex;align-items:center;justify-content:center;padding:42px 0}
+.directory{width:100%;max-width:1360px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.directory-item{position:relative;min-height:274px;padding:30px 22px 28px;display:grid;grid-template-rows:108px 58px;align-content:center;justify-items:center;row-gap:20px;text-align:center;border-right:1px solid var(--rule);transition:background .2s ease,color .2s ease}
+.directory-item:nth-child(4n){border-right:0}
+.directory-item:nth-child(-n+4){border-bottom:1px solid var(--rule)}
 .directory-item::after{content:"";position:absolute;left:50%;right:50%;bottom:-1px;height:2px;background:var(--burgundy);transition:left .25s ease,right .25s ease}
 .directory-item:hover{background:rgba(255,255,255,.38);color:var(--burgundy)}
 .directory-item:hover::after{left:0;right:0}
+.directory-item:focus-visible{outline:2px solid var(--burgundy);outline-offset:-2px}
+.project-pending{cursor:default;color:rgba(16,42,56,.78)}
+.project-pending:hover{background:transparent;color:rgba(16,42,56,.78)}
+.project-pending:hover::after{left:50%;right:50%}
+.project-pending:hover .item-logo{transform:none}
 
-.item-logo{width:min(230px,100%);height:128px;margin:0;border:0;border-radius:0;display:grid;place-items:center;transition:transform .25s ease}
+.item-logo{width:min(220px,100%);height:108px;margin:0;border:0;border-radius:0;display:grid;place-items:center;transition:transform .25s ease}
 .directory-item:hover .item-logo{transform:translateY(-5px)}
 .item-logo img{width:104px;height:104px;object-fit:contain}
-.neuroprogress-logo img{width:110px;height:116px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
-.library-logo img{width:114px;height:114px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
+.neuroprogress-logo img{width:100px;height:106px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
+.library-logo img{width:104px;height:104px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
 .profile-symbol{display:grid;place-items:center}
-.profile-symbol .brand-emblem-tile{width:124px;height:105px;background-size:160px 160px;background-position:center -22px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
-.sagbal-logo{width:min(230px,100%);height:128px}
-.sagbal-logo img{width:72px;height:118px;object-fit:contain}
+.profile-symbol .brand-emblem-tile{width:118px;height:100px;background-size:152px 152px;background-position:center -21px;filter:brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(1524%) hue-rotate(305deg) brightness(92%)}
+.sagbal-logo{width:min(220px,100%);height:108px}
+.sagbal-logo img{width:66px;height:108px;object-fit:contain}
 .sagbal-wordmark span:first-child{color:var(--ink)}
 .sagbal-wordmark span:last-child{color:var(--burgundy)}
-.item-copy{width:100%;height:66px;display:grid;place-items:start center;min-width:0}
-.item-copy strong{height:66px;display:flex;align-items:flex-start;justify-content:center;font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:400;line-height:1.08;letter-spacing:-.7px}
+.item-copy{width:100%;height:58px;display:grid;place-items:start center;min-width:0}
+.item-copy strong{height:58px;display:flex;align-items:flex-start;justify-content:center;font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:400;line-height:1.08;letter-spacing:-.6px}
+
+.project-glyph{color:var(--burgundy)}
+.atlas-monogram{font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-5px;color:var(--ink)}
+.atlas-monogram i,.atlas-wordmark i,.recipe-wordmark i{font-style:normal;color:var(--burgundy)}
+.atlas-wordmark{letter-spacing:-1px!important}
+.split-wordmark span:first-child{color:var(--ink)}
+.split-wordmark span:last-child{color:var(--burgundy)}
+.drip-symbol{position:relative;width:48px;height:62px;border:2px solid var(--burgundy);border-radius:58% 42% 62% 38%;transform:rotate(45deg)}
+.drip-symbol::after{content:"";position:absolute;width:16px;height:24px;right:9px;bottom:8px;border-right:1px solid var(--ink);border-radius:50%;opacity:.65}
+.pizza-symbol{position:relative;width:68px;height:72px;background:var(--burgundy);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pizza-symbol::before{content:"";position:absolute;inset:5px 7px 8px;background:var(--paper);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pizza-symbol::after{content:"";position:absolute;width:8px;height:8px;left:25px;top:31px;border-radius:50%;background:var(--burgundy);box-shadow:18px 17px 0 var(--burgundy),-9px 22px 0 var(--ink)}
+.recipe-book{position:relative;width:80px;height:62px}
+.recipe-book::before,.recipe-book::after{content:"";position:absolute;top:7px;width:38px;height:50px;border:2px solid var(--burgundy);background:transparent}
+.recipe-book::before{left:1px;border-radius:4px 11px 4px 8px;transform:rotate(-3deg)}
+.recipe-book::after{right:1px;border-radius:11px 4px 8px 4px;transform:rotate(3deg)}
+.recipe-book i{position:absolute;left:39px;top:9px;width:2px;height:47px;background:var(--ink);z-index:2;opacity:.55}
 
 .site-footer{min-height:104px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:30px}
 .social-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -49,7 +72,21 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
 .site-footer p{margin:0;color:var(--muted);font-size:8px;letter-spacing:.65px;white-space:nowrap}
 
 @media(max-width:1100px){
-  .page-shell{padding:0 36px}.directory{max-width:760px;grid-template-columns:repeat(2,minmax(0,1fr))}.directory-item{min-height:310px;padding:36px 24px;border-bottom:1px solid var(--rule)}.directory-item:nth-child(even){border-right:0}.directory-item:nth-last-child(-n+2){border-bottom:0}.item-logo{width:220px;height:118px}.item-logo img{width:96px;height:96px}.neuroprogress-logo img{width:100px;height:106px}.library-logo img{width:104px;height:104px}.sagbal-logo{width:220px}.sagbal-logo img{width:68px;height:112px}.item-copy strong{font-size:27px}.site-footer{padding:26px 0;align-items:flex-start;flex-direction:column}.site-footer p{white-space:normal}
+  .page-shell{padding:0 36px}
+  .directory{max-width:800px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .directory-item{min-height:250px;padding:28px 24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .directory-item:nth-child(4n){border-right:1px solid var(--rule)}
+  .directory-item:nth-child(even){border-right:0}
+  .directory-item:nth-last-child(-n+2){border-bottom:0}
+  .item-logo{width:220px;height:108px}
+  .item-logo img{width:92px;height:92px}
+  .neuroprogress-logo img{width:96px;height:102px}
+  .library-logo img{width:100px;height:100px}
+  .sagbal-logo{width:220px;height:108px}
+  .sagbal-logo img{width:64px;height:106px}
+  .item-copy strong{font-size:25px}
+  .site-footer{padding:26px 0;align-items:flex-start;flex-direction:column}
+  .site-footer p{white-space:normal}
 }
 @media(max-width:680px){
   .page-shell{padding:0 20px}
@@ -63,6 +100,7 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
     align-content:center;align-items:center;justify-items:start;gap:20px;text-align:left;border-right:0;border-bottom:1px solid var(--rule)
   }
   .directory-item:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .directory-item:nth-child(4n){border-right:0}
   .directory-item:last-child{border-bottom:0}
   .item-logo,.sagbal-logo{width:92px;height:76px;margin:0;border:0;border-radius:0;display:grid;place-items:center}
   .item-logo img,.neuroprogress-logo img{width:64px;height:68px;object-fit:contain}
@@ -70,6 +108,13 @@ main{display:flex;align-items:center;justify-content:center;padding:56px 0}
   .profile-symbol{width:92px;overflow:hidden}
   .profile-symbol .brand-emblem-tile{width:74px;height:62px;background-size:96px 96px;background-position:center -13px}
   .sagbal-logo img{width:58px;height:76px}
+  .atlas-monogram{font-size:39px}
+  .drip-symbol{width:39px;height:51px}
+  .pizza-symbol{width:48px;height:54px}
+  .pizza-symbol::after{left:18px;top:23px;transform:scale(.75)}
+  .recipe-book{width:61px;height:49px}
+  .recipe-book::before,.recipe-book::after{width:29px;height:40px}
+  .recipe-book i{left:29px;height:37px}
   .item-copy{
     width:100%;height:76px;padding:0;display:flex;align-items:center;justify-content:flex-start;min-width:0
   }
