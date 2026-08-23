@@ -19,10 +19,12 @@ img,svg{display:block;max-width:100%}
 .language{display:flex;align-items:center;gap:8px}.language a{padding:7px 2px}.language a.active{color:var(--burgundy);border-bottom:1px solid var(--burgundy)}
 
 main{display:flex;align-items:center;justify-content:center;padding:28px 0}
-.directory{width:100%;max-width:1120px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.directory-item{position:relative;min-height:242px;padding:28px 22px 26px;display:grid;grid-template-rows:108px 58px;align-content:center;justify-items:center;row-gap:20px;text-align:center;border-right:1px solid var(--rule);transition:background .2s ease,color .2s ease}
-.directory-item:nth-child(3n){border-right:0}
-.directory-item:nth-child(-n+6){border-bottom:1px solid var(--rule)}
+.directory{width:100%;max-width:1280px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.directory-item{position:relative;grid-column:span 2;min-height:242px;padding:28px 22px 26px;display:grid;grid-template-rows:108px 58px;align-content:center;justify-items:center;row-gap:20px;text-align:center;border-right:1px solid var(--rule);transition:background .2s ease,color .2s ease}
+.directory-item:nth-child(4n){border-right:0}
+.directory-item:nth-child(-n+8){border-bottom:1px solid var(--rule)}
+.directory-item:nth-child(9){grid-column:2 / span 2}
+.directory-item:nth-child(11){border-right:0}
 .directory-item::after{content:"";position:absolute;left:50%;right:50%;bottom:-1px;height:2px;background:var(--burgundy);transition:left .25s ease,right .25s ease}
 .directory-item:hover{background:rgba(255,255,255,.38);color:var(--burgundy)}
 .directory-item:hover::after{left:0;right:0}
@@ -66,6 +68,13 @@ main{display:flex;align-items:center;justify-content:center;padding:28px 0}
 .trattoria-mark i:nth-child(3){left:31px;bottom:21px}
 .trattoria-wordmark{align-items:center!important;flex-direction:column;gap:3px;color:#21452d;font-size:19px!important;font-weight:700!important;line-height:1.08!important;letter-spacing:.13em!important}
 .trattoria-wordmark span{display:block}.trattoria-wordmark span:last-child{color:#8f342a}
+.kadr-logo img{width:118px;height:102px}
+.kadr-wordmark span:first-child{color:var(--ink)}
+.kadr-wordmark span:last-child{color:#861f2e}
+.concert-logo img{width:116px;height:100px}
+.concert-wordmark{font-family:Arial,Helvetica,sans-serif!important;font-size:23px!important;font-weight:800!important;letter-spacing:-1.1px!important}
+.concert-wordmark span:first-child{color:var(--ink)}
+.concert-wordmark span:last-child{color:#d74725}
 
 .site-footer{min-height:104px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:30px}
 .social-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -77,10 +86,13 @@ main{display:flex;align-items:center;justify-content:center;padding:28px 0}
 
 @media(max-width:1100px){
   .page-shell{padding:0 36px}
-  .directory{max-width:960px;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .directory-item{min-height:242px;padding:28px 18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .directory{max-width:960px;grid-template-columns:repeat(6,minmax(0,1fr))}
+  .directory-item,.directory-item:nth-child(9){grid-column:span 2;min-height:242px;padding:28px 18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .directory-item:nth-child(4n){border-right:1px solid var(--rule)}
   .directory-item:nth-child(3n){border-right:0}
-  .directory-item:nth-last-child(-n+3){border-bottom:0}
+  .directory-item:nth-last-child(-n+2){border-bottom:0}
+  .directory-item:nth-child(10){grid-column:2 / span 2}
+  .directory-item:nth-child(11){border-right:0}
   .item-logo{width:220px;height:108px}
   .item-logo img{width:92px;height:92px}
   .courses-logo img{width:84px;height:84px}
@@ -103,11 +115,13 @@ main{display:flex;align-items:center;justify-content:center;padding:28px 0}
   .header-meta>span{display:none}
   main{padding:26px 0 32px}
   .directory{grid-template-columns:1fr;max-width:420px}
-  .directory-item,.sagbal-item{
+  .directory-item,.directory-item:nth-child(9),.directory-item:nth-child(10),.sagbal-item{
+    grid-column:1 / -1;
     min-height:132px;padding:18px 16px;display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:76px;
     align-content:center;align-items:center;justify-items:start;gap:20px;text-align:left;border-right:0;border-bottom:1px solid var(--rule)
   }
-  .directory-item:nth-last-child(-n+3){border-bottom:1px solid var(--rule)}
+  .directory-item:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .directory-item:nth-child(4n){border-right:0}
   .directory-item:nth-child(3n){border-right:0}
   .directory-item:last-child{border-bottom:0}
   .item-logo,.sagbal-logo{width:92px;height:76px;margin:0;border:0;border-radius:0;display:grid;place-items:center}
@@ -118,6 +132,7 @@ main{display:flex;align-items:center;justify-content:center;padding:28px 0}
   .sagbal-logo img{width:58px;height:76px}
   .atlas-glyph img,.recipe-glyph img{width:62px;height:62px}
   .courses-logo img{width:64px;height:64px;border-radius:16px}
+  .kadr-logo img,.concert-logo img{width:76px;height:68px}
   .dripcalc-mark,.trattoria-mark{transform:scale(.76)}
   .item-copy{
     width:100%;height:76px;padding:0;display:flex;align-items:center;justify-content:flex-start;min-width:0

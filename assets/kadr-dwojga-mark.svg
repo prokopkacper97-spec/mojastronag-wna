@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 104" role="img" aria-labelledby="title desc">
+  <title id="title">Kadr Dwojga</title>
+  <desc id="desc">Znak filmowy z dwiema sylwetkami</desc>
+  <rect x="12" y="7" width="96" height="90" rx="3" fill="#861f2e"/>
+  <rect x="25" y="7" width="83" height="90" fill="#161512"/>
+  <g fill="#f3f0e8">
+    <rect x="16" y="14" width="6" height="7" rx="1"/>
+    <rect x="16" y="28" width="6" height="7" rx="1"/>
+    <rect x="16" y="42" width="6" height="7" rx="1"/>
+    <rect x="16" y="56" width="6" height="7" rx="1"/>
+    <rect x="16" y="70" width="6" height="7" rx="1"/>
+    <rect x="16" y="84" width="6" height="7" rx="1"/>
+    <circle cx="61" cy="31" r="12"/>
+    <path d="M61 44 37 88h48L61 44Z"/>
+  </g>
+  <path d="M34 91c0-16 8-27 20-27 7 0 12 4 15 11 3-5 8-8 14-8 11 0 18 9 18 24H34Z" fill="#161512"/>
+  <circle cx="54" cy="67" r="8" fill="#161512"/>
+  <circle cx="82" cy="70" r="7" fill="#161512"/>
+  <path d="M70 8v89" stroke="#d6c40a" stroke-width="1" opacity=".9"/>
+</svg>
